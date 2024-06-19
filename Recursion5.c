@@ -10,7 +10,6 @@ int resto(int, int);
 
 int main() {
     int Num1, Num2;
-        int Max, Min;
     int Result;
 
     printf("Please, give me the first number.\n");
@@ -19,26 +18,18 @@ int main() {
     printf("Please, give me the second number.\n");
     scanf("%d", &Num2);
 
-    if (Num1 > Num2) {
-        Max = Num1;
-        Min = Num2;
-    } else {
-        Max = Num2;
-        Min = Num1;
-    }
-
-    Result = resto(Max, Min);
+    Result = resto(Num1, Num2);
 
     printf("%d", Result);
 }
 
-int resto (int max, int min) {
+int resto (int num1, int num2) {
     int result;
 
-    if (max - min < 0) {
-        return min;
+    if (num1 < num2) {
+        return num1;
     } else {
-        result = 1 + resto(max - min, min);
+        result = resto(num1 - num2, num2);
     }
     return result;
 }
