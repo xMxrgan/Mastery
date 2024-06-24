@@ -1,10 +1,7 @@
 /*
-Si scriva un programma C che definisce la funzione ricorsiva
-int cifra_massima(int num) la quale deve restituire la cifra
-massima nella rappresentazione decimale di num. Tale
+Si scriva un programma C che definisce la funzione ricorsiva int cifra_massima(int num) la quale deve restituire la cifra massima nella rappresentazione decimale di num. Tale
 programma dovrà inoltre definire un main che
-(1) chiede all’utente di inserire un numero non
-negativo,
+(1) chiede all’utente di inserire un numero non negativo,
 (2) chiama la funzione cifra massima per calcolarne la
 cifra massima e
 (3) stampa tale cifra massima trovata.
@@ -17,3 +14,30 @@ $ ./a.out Inserisci un numero non negativo: -5
 Inserisci un numero non negativo: 30756
 La cifra massima di 30756 è 7
 */
+
+#include<stdio.h>
+
+int cifraMax(int);
+void stampa(int);
+
+int main() {
+    int Result;
+    int Num;
+    
+    do {
+        scanf("%d", &Num);
+    } while (Num < 0);
+    
+    Result = cifraMax(Num);
+    stampa(Result);
+}
+
+int cifraMax(int num) {
+    int max = num % 10;
+    
+    if (num == 0) {
+        return max;
+        } else {
+            return cifraMax(num / 10);
+        }
+}
