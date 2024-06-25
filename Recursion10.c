@@ -24,39 +24,25 @@ int leggi() {
 
 void stampa(int num) {
     int joker = num % 10;
-    int result;
-    int count = 0;
-    int tmp = num;
 
-    while (tmp / 10 > 0) {
-        count ++;
-        tmp = tmp / 10;
+    if(num / 10 > 0)
+        stampa(num / 10);
+
+    switch (joker) {
+        case 0: printf("Zero"); break;
+        case 1: printf("Uno"); break;
+        case 2: printf("Due"); break;
+        case 3: printf("Tre"); break;
+        case 4: printf("Quattro"); break;
+        case 5: printf("Cinque"); break;
+        case 6: printf("Sei"); break;
+        case 7: printf("Sette"); break;
+        case 8: printf("Otto"); break;
+        case 9: printf("Nove"); break;
+        default: break;
     }
-
-    if(num == 0) {
-
-        switch (joker) {
-            case 0: printf("Zero"); break;
-            case 1: printf("Uno"); break;
-            case 2: printf("Due"); break;
-            case 3: printf("Tre"); break;
-            case 4: printf("Quattro"); break;
-            case 5: printf("Cinque"); break;
-            case 6: printf("Sei"); break;
-            case 7: printf("Sette"); break;
-            case 8: printf("Otto"); break;
-            case 9: printf("Nove"); break;
-            default: break;
-            }
-
         printf(" ");
-
-    } else {
-
-        stampa(num / 10 * (count - 1));
-    }
 }
-
 
 int main() {
     int Num = leggi();
