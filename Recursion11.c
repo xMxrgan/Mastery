@@ -34,10 +34,17 @@ int main() {
 
 int cifraMax(int num) {
     int max = num % 10;
-    
-    if (num == 0) {
-        return max;
-        } else {
-            return cifraMax(num / 10);
-        }
+    int result;
+
+    if (num / 10 > 0) {
+        result = max;
+    } else {
+        result = cifraMax(num / 10);
+    }
+
+    return result;
+}
+
+void stampa(int result) {
+    printf("The major number is: %d", result);
 }
