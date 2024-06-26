@@ -1,0 +1,10 @@
+/*
+Completare il programma list.c rispettando le specifiche fornite nei commenti del codice stesso. In particolare è richiesto di implementare:
+¢ 1) int is_empty(struct list *L) – la funzione deve restituire 1 se e solo se L è vuota, 0 altrimenti;
+¢ 2) void list_print(struct list *L) – la funzione deve stampare a video il contenuto della lista L (tenere presente che L può anche essere la lista vuota, ossia valere NULL);
+¢ 3) struct list *list_search(struct list *L, int k) – la funzione deve restituire un puntatore ad un nodo della lista L in cui il campo val contenga il valore k; se il valore k non compare nella lista, la funzione deve restituire NULL;
+¢ 4) struct list *nth_element(struct list *L, int n) – la funzione deve restituire il puntatore all’n-esimo nodo della lista (n=0 è il primo nodo, n=1 è il secondo nodo, ecc.). Se la lista ha meno di n+1 nodi, deve restituire NULL;
+¢ 5) struct list *list_from_array(int v[], int n) – la funzione deve creare una nuova lista contenente gli n elementi dell’array v;
+¢ 6) struct list *list_concat(struct list *L1, struct list *L2) – la funzione deve restituire una lista contenente i nodi di L1 seguiti da quelli di L2. N.B., la funzione non deve creare nuovi nodi, ma utilizzare quelli già presenti nelle due liste, “aggiustando” eventualmente alcuni puntatori. Come per altre delle funzioni precedenti, è possibile una semplice implementazione ricorsiva (vedi lucidi).
+¢ 7) struct list *list_reverse(struct list *L) – la funzione deve restituire la lista ottenuta “rovesciando” i nodi di L (l’ultimo nodo di L diventa il primo della nuova lista; il penultimo diventa il secondo, e così via). Questa funzione non deve creare nuovi nodi, deve semplicemente riorganizzare quelli di L. Per questa funzione conviene probabilmente un approccio iterativo (non ricorsivo), in cui si esegue un ciclo il cui corpo consiste nello spostamento del primo nodo di L all'inizio della lista rovesciata. Il ciclo termina quando L diventa la lista vuota...
+*/
