@@ -54,18 +54,39 @@ char *read() {
     return string;
 }
 
-elem *createList(elem *list, char string) {
+elem *createList(elem *list, char character) {
+    elem *tmp;
+    elem *prec;
 
+    tmp = (elem *)malloc(sizeof(elem));
+
+    if (tmp != NULL) {
+
+        if (list == NULL) {
+            tmp -> data = character;
+            tmp -> next = NULL;
+        } else {
+            
+            
+
+            for (prec = list; prec != NULL; prec = prec -> next) {
+                tmp = prec -> next;
+            }
+        }
+    }
+
+
+    return list;
 }
 
 void printList(elem *list) {
-    
+
     printf("%c -> ", list -> data);
 
     while (list -> next != NULL) {
 
         list = list -> next;
         printf("%d", list -> data);
-        
+
     }
 }
