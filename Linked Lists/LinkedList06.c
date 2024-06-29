@@ -23,7 +23,7 @@ typedef struct node {
 
 char *read();
 void printList(elem *);
-elem *createList(elem *, char);
+elem *createList(elem *, char*);
 
 int main() {
     char *String;
@@ -32,23 +32,17 @@ int main() {
 
     String = read();
 
-    for (Joker = 0; Joker != '\0'; Joker ++) {
-        printf("%c alorra", String[Joker]);
+    List = createList(List, String);
 
-        if (String[Joker] < '0' && String[Joker] > '9') {
+    printf("Prova2");
+    printList(List);
 
-                printf("Prova1");
-
-            List = createList(List, String[Joker]);
-
-                printf("Prova2");
-            printList(List);
-        }
-    }
 }
 
 char *read() {
     char *string;
+
+    string = (char *)malloc(sizeof(char));
 
     printf("Give me your string!\nBut it has to be shorter than 256 characters.\n");
     scanf("%s", string);
@@ -61,24 +55,40 @@ char *read() {
     return string;
 }
 
-elem *createList(elem *list, char character) {
+elem *createList(elem *list, char *string) {
     elem *tmp;
     elem *prec;
 
-    tmp = (elem *)malloc(sizeof(elem));
+    if (*string == '\0') {
 
-    if (tmp != NULL) {
-        tmp -> data = character;
-        tmp -> next = NULL;
+        return 0;
 
-        if (list == NULL) {
+    } else {
 
-            list = tmp;
+        if (*string >= '0' && *string <= '9') {
+
+            return createList(list, string ++);
 
         } else {
 
-            for (prec = list; prec != NULL; prec = prec -> next) {
-                prec -> next = tmp;
+            tmp = (elem *)malloc(sizeof(elem));
+
+            if (tmp != NULL) {
+
+                tmp -> data = *string;
+                tmp -> next = NULL;
+
+                if (list == NULL) {
+
+                    list = tmp;
+
+                } else {
+
+                    for (prec = list; prec -> next != NULL; prec = prec -> next) {
+
+                        prec -> next = tmp;
+                    }
+                }
             }
         }
     }
@@ -88,11 +98,15 @@ elem *createList(elem *list, char character) {
 
 void printList(elem *list) {
 
-    printf(" %c -> ", list -> data);
+    while (list != NULL) {
 
-    while (list -> next != NULL) {
+        printf(" %c", list->data);
 
-        list = list -> next;
-        printf("%c", list -> data);
+        if (list->next != NULL) {
+
+            printf(" ->");
+        }
+
+        list = list->next;
     }
 }
