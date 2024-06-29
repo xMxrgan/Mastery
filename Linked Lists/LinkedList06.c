@@ -8,6 +8,8 @@ Inserire una stringa: c0a09se3t367t8a Creazione della lista...
 La lista è: c -> a -> s -> e -> t -> t -> a
 */
 
+// Done without opening a file, just asking to the user the input
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -31,10 +33,15 @@ int main() {
     String = read();
 
     for (Joker = 0; Joker != '\0'; Joker ++) {
+        printf("%c alorra", String[Joker]);
 
         if (String[Joker] < '0' && String[Joker] > '9') {
 
+                printf("Prova1");
+
             List = createList(List, String[Joker]);
+
+                printf("Prova2");
             printList(List);
         }
     }
@@ -46,7 +53,7 @@ char *read() {
     printf("Give me your string!\nBut it has to be shorter than 256 characters.\n");
     scanf("%s", string);
 
-    while (strlen(string) < DIM) {
+    while (strlen(string) > DIM) {
         printf("It has to be shorter than 256 characters.\n");
         scanf("%s", string);
     }
@@ -61,32 +68,31 @@ elem *createList(elem *list, char character) {
     tmp = (elem *)malloc(sizeof(elem));
 
     if (tmp != NULL) {
+        tmp -> data = character;
+        tmp -> next = NULL;
 
         if (list == NULL) {
-            tmp -> data = character;
-            tmp -> next = NULL;
+
+            list = tmp;
+
         } else {
-            
-            
 
             for (prec = list; prec != NULL; prec = prec -> next) {
-                tmp = prec -> next;
+                prec -> next = tmp;
             }
         }
     }
-
 
     return list;
 }
 
 void printList(elem *list) {
 
-    printf("%c -> ", list -> data);
+    printf(" %c -> ", list -> data);
 
     while (list -> next != NULL) {
 
         list = list -> next;
-        printf("%d", list -> data);
-
+        printf("%c", list -> data);
     }
 }
