@@ -8,8 +8,12 @@ typedef struct node {
 
 elem *insertHead(elem *, int);
 void view(elem *);
-void maximum(elem *, int *, int *);
+void maximum(elem *, int *, int *);                    // Passed through pointer
 
 int main() {
+    elem *List = NULL;
+    int Result;
+    
+    
     
 }
