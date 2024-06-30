@@ -5,39 +5,20 @@ Scrivere un programma C che chiede all’utente una sequenza di numeri a priori 
 #include <stdio.h>
 
 int main() {
-    int Count = -1;
-    int NumFile, Num1, Num2;
-    FILE *file;
+    FILE *File;
+    int Num, Count = 0;
 
-    printf("Please, give me 2 values and I return you how many numbers there are between them in a file");
-    scanf("%d %d", &Num1, &Num2);
+    File = fopen("valori.txt", "w");
 
-    file = fopen("text.txt", "r");
+    do {
+        scanf("%d", &Num);
+        fprintf(File, "%d ", Num);
 
-    if (file != NULL) {
+        Count ++;
+    } while (Num != 0);
 
-        while (!feof(file)) {
+    fprintf(File, "\t%d", Count);
 
-            fscanf(file, "%d", &NumFile);
 
-            if (NumFile == Num1 || NumFile == Num2) {
-                Count = 0;
-            }
-
-            if (NumFile == Num1 || NumFile == Num2 && Count >= 0) {
-                Count ++;
-            }
-        }
-    } else {
-        printf("Error!");
-    }
-
-    if (Count > 0) {
-        printf("%d", Count);
-    } else {
-        printf("One or both your number aren't included in the file");
-    }
-
-    fclose(file);
+    fclose(File);
 }
-
