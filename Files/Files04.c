@@ -13,10 +13,18 @@ int main() {
     printf("Please, give me the cap for the multipliers:\n");
     scanf("%d", &Num);
 
-    for (Joker = 1; Joker == Num; Joker ++) {
-        for (Jolly = 1; Jolly == 10; Jolly ++) {
-            
-            printf("%3d\t", Jolly * Joker);
+    if (file != NULL) {
+        for (Joker = 1; Joker <= Num; Joker ++) {
+            for (Jolly = 1; Jolly <= 10; Jolly ++) {
+
+                fprintf(file, "%3d\t", Jolly * Joker);
+            }
+            fprintf(file, "\n");
         }
+
+    } else {
+        printf("Error!");
     }
+
+    fclose(file);
 }
