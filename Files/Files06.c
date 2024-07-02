@@ -17,7 +17,7 @@ int main() {
 int readAndPrint() {
     FILE *FileRead;
     int num[N], min = 100;
-    int joker;
+    int joker, count;
 
     FileRead = fopen("input.txt", "r");
 
@@ -27,8 +27,8 @@ int readAndPrint() {
 
             for (joker = 0; joker < N; joker ++) {
 
-                    fscanf(FileRead, "%d", &num[jolly]);
-                    printf("%d ", num[jolly]);
+                    fscanf(FileRead, "%d", &num[joker]);
+                    printf("%d ", num[joker]);
 
                     if (num[joker] <= min) {
                         min = num[joker];
