@@ -17,26 +17,26 @@ int main() {
 int readAndPrint() {
     FILE *FileRead;
     int num[N], min = 100;
-    int joker, jolly;
+    int joker;
 
     FileRead = fopen("input.txt", "r");
 
     if (FileRead != NULL) {                 // Problema
 
-        while(!feof(FileRead)) {
+        while(!feof(FileRead) && count != N) {
 
             for (joker = 0; joker < N; joker ++) {
-                for (jolly = 0; jolly < N; jolly ++) {
 
                     fscanf(FileRead, "%d", &num[jolly]);
                     printf("%d ", num[jolly]);
 
-                    if (num[jolly] <= min) {
-                        min = num[jolly];
+                    if (num[joker] <= min) {
+                        min = num[joker];
                     }
-                }
-            printf("\n");
             }
+            
+            printf("\n");
+            count ++;
         }
 
     } else {
