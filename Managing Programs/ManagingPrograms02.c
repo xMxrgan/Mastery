@@ -5,18 +5,66 @@ Specificamente, per ogni j (j=0,…,N-1) i valori di b[j] si ottengono dalla som
 Ad esempio, se a[] = {1,2,1,2,1}, si otterrà b[] =
 {1,3,4,6,7}.
 Si scrivano inoltre il prototipo del sottoprogramma,
-la chiamata nel main, e la dichiarazione di tutte le
-variabili ritenute utili.
+la chiamata nel main, e la dichiarazione di tutte le variabili ritenute utili.
 (Bonus di 1 punto per la definizione ricorsiva)
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-int *somme_prefisse();
+int read(int);
+int somme_prefisse(int *, int);
+
 int main() {
     int *Array;
+    int *Brray;
     int N;
+    int Joker;
 
-    printf("Please, give me the max amount of numbers in the array");
+    printf("Please, give me a dimensione for the list:\n");
+    scanf("%d", &N);
+
+    *Array = read(N);
+
+    *Brray = somme_prefisse(Array, N);
+
+    for (Joker = 0; Joker < N; Joker ++) {                      // How to return the array in the main
+        printf("%d", Array[Joker]);
+    }
+
+    for (Joker = 0; Joker < N; Joker ++) {                      // How to return the array in the main
+        printf("%d", Brray[Joker]);
+    }
 }
+
+int read(int n) {
+    int joker;
+    int *Array;
+
+    Array = (int *)malloc(n *(sizeof(int)));
+
+    for (joker = 0; joker < n; joker ++) {
+        scanf("%d", &Array[joker]);
+    }
+
+    return *Array;
+}
+
+int somme_prefisse(int *Array, int n) {
+    int *Beeray;
+    int joker;
+
+    Beeray = (int *)malloc(n *(sizeof(int)));
+
+    for (joker = 0; joker < n; joker ++) {
+
+        if (joker == 0) {
+            Beeray[joker] = Array[joker];
+        } else {
+            Beeray[joker] = (Array[joker] + Array[joker - 1]);
+        }
+    }
+
+    return *Beeray;
+}
+
