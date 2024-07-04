@@ -4,16 +4,23 @@ Diciamo che un array a[] è "quasi ordinato" se tutti i valori negativi (se esis
 
 #include <stdio.h>
 #include <stdlib.h>
-#define N 5
+
+/*
+typedef struct node {
+    int Datum;
+    struct node *Next;
+} elem;
+*/
 
 int quasi_ordinato(int [], int);
 int main() {
-    int A[N];                           // Come fare array??
-    int Result, Joker;
+    int A[] = {};                           // Come fare array??
+    int Result, Joker, N;
 
-    printf("Give me the array:\n");
+    printf("Give me the lenght of the array:\n");
+    scanf("%d", &N);
 
-    for (Joker = 0; Joker < N; Joker ++) {
+    for (Joker = 0; Joker <= N; Joker ++) {
         scanf("%d", &A[Joker]);
     }
 
@@ -24,15 +31,15 @@ int main() {
 
 int quasi_ordinato(int a[], int n) {
     int joker;
-    int flag = 0;                           // It becomes 1 whenever numbers turn positive
+    int Flag = 0;                           // It becomes 1 whenever numbers turn positive
 
-    for (joker = 0; joker < n; joker ++) {
+    for (joker = 0; joker <= n; joker ++) {
 
         if (a[joker] >= 0) {
-            flag = 1;
+            Flag = 1;
         }
 
-        if (a[joker] < 0 && flag == 1) {
+        if (a[joker] < 0 && Flag == 1) {
             return 0;
         }
     }
