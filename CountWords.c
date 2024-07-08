@@ -25,7 +25,6 @@ int main() {
     elem *List = NULL;
 //    int Count;
 //
-    String = (char *)malloc(sizeof(char));
 
     if (File == NULL) {
         printf("Error!");
@@ -36,6 +35,7 @@ int main() {
         while (!feof(File)) {
 
             fscanf(File, "%s ", String);
+            String = (char *)malloc(sizeof(char));
             List = createList(List, String);
         }
         write(List);
