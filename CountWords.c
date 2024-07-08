@@ -9,33 +9,29 @@ Put a control that the words have to be at least of 4 letter
 
 typedef struct node {
     char *word;
-//    int times;
+    int times;
     struct node *next;
 } elem;
 
 elem *createList(elem *, char *);
 void write(elem *);
-//int counter(char *);
-//elem *alphabetOrder(elem *);
 //elem *freqOrder(elem *);
 
 int main() {
     FILE *File;
     char *String;
     elem *List = NULL;
-//    int Count;
-//
+
+    String = (char *)malloc(sizeof(char));
+    File = fopen("CounterRead.txt", "r");
 
     if (File == NULL) {
         printf("Error!");
     } else {
 
-        File = fopen("CounterRead.txt", "r");
-
         while (!feof(File)) {
 
             fscanf(File, "%s ", String);
-            String = (char *)malloc(sizeof(char));
             List = createList(List, String);
         }
         write(List);
@@ -48,19 +44,31 @@ int main() {
 elem *createList(elem *list, char *string) {
     elem *tmp;
     elem *prec;
+    char *character;
+    int counter = 1;
 
     tmp = (elem *)malloc(sizeof(elem));
+    character = (char *)malloc(sizeof(char));
+
+    strcpy(character, string);
 
     if (tmp != NULL) {
-        tmp -> word = string;
+        tmp -> word = character;
+        tmp -> times = counter;
         tmp -> next = NULL;
 
         if (list == NULL) {
             list = tmp;
 
         } else {
-            for (prec = list; prec -> next != NULL; prec = prec -> next);
-            prec -> next = tmp;
+            for (prec = list; prec -> next != NULL; prec = prec -> next) {
+
+                if (character == prec -> word) {
+                    prec -> times ++;
+                } else {
+                    prec -> next = tmp;
+                }
+            }
         }
 
     } else {
@@ -70,6 +78,7 @@ elem *createList(elem *list, char *string) {
     return list;
 }
 
+
 void write(elem *list) {
     FILE  *fileW;
     elem *tmp = list;
@@ -77,7 +86,7 @@ void write(elem *list) {
     fileW = fopen("CounterWrite.txt", "w");
 
     while (tmp != NULL) {
-        printf("%s\t\n", tmp -> word);
+        printf("\t%10s:\t%d\n", tmp -> word, tmp -> times);
         tmp = tmp -> next;
     }
 
