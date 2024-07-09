@@ -15,7 +15,7 @@ typedef struct node {
 
 elem *createList(elem *, char *);
 void write(elem *);
-//elem *freqOrder(elem *);
+elem *freqOrder(elem *);
 
 int main() {
     FILE *File;
@@ -36,6 +36,8 @@ int main() {
         }
         write(List);
     }
+
+    List = freqOrder(List);
 
     fclose (File);
     free(String);
@@ -61,15 +63,18 @@ elem *createList(elem *list, char *string) {
             list = tmp;
 
         } else {
+
             for (prec = list; prec -> next != NULL; prec = prec -> next) {
 
-                if (character == prec -> word) {
+                if (strcmp(prec -> word, character) == 0) {
                     prec -> times ++;
-                } else {
-                    prec -> next = tmp;
+
+                    return list;
                 }
             }
+            prec -> next = tmp;
         }
+        return list;
 
     } else {
         printf("Error!");
@@ -78,6 +83,36 @@ elem *createList(elem *list, char *string) {
     return list;
 }
 
+elem *freqOrder(elem *list) {
+    elem *tmp;
+    elem *prec;
+    int max = -1;
+    int count = 1;
+
+
+    for (prec = list; prec != NULL; prec = prec -> next) {
+        if (prec -> times > max) {
+            max = prec -> times;
+        }                                   // To find the max
+    }
+
+    while (count != max + 1) {
+
+        for (prec = list; prec != NULL; prec = prec -> next) {
+            if (prec -> times == count) {
+                tmp = prec;
+                tmp -> next = list;
+
+                list = tmp;
+            }
+        }
+
+        count ++;
+    }
+
+
+    return list;
+}
 
 void write(elem *list) {
     FILE  *fileW;
