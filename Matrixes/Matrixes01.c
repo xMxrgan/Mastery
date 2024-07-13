@@ -21,3 +21,26 @@ int main() {
     int Matrix[D1][D2];
     
 }
+
+elem *createList(elem *list, int num) {
+    elem *tmp;
+    elem *prec;
+    
+    tmp = (elem *)malloc(sizeof(elem));
+    
+    if (tmp != NULL) {
+        tmp -> datum = num;
+        tmp -> next = NULL;
+        
+        if (list != NULL) {
+            for (prec = list; prec != NULL; prec = prec -> next);
+            prec -> next = tmp;
+        } else {
+            list = tmp;
+        
+    } else {
+        printf("Error!");
+    }
+    
+    return list;
+}
