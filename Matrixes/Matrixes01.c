@@ -37,6 +37,7 @@ elem *createList(elem *list, int num) {
             prec -> next = tmp;
         } else {
             list = tmp;
+        }
         
     } else {
         printf("Error!");
