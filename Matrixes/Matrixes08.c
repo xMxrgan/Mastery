@@ -15,6 +15,7 @@ Il programma stamperà̀ l’indice 3: tale colonna ha come massima differenza 1
 int main () {
     int Matrix[N][N];
     int I, J;
+    int Max, Min, Dist, NumCol;
     
     pritnf("please, give me your 5 x 5 matrix:\n");
     
@@ -27,13 +28,26 @@ int main () {
     pritnf("Your matrix is:\n");
     
     for (I = 0; I < N; I ++) {
+        Max = 0;
+        Min = 0;
+        
         for (J = 0; J < N; J ++) {
             
+            if (Matrix[I][J] > Max || ) {
+                
+            }
+            
+            if (Matrix[I][J] < Min ) {
+                
+            }
+            
         }
+        
+        if ((Max - Min) > Dist) {
+            Dist = Max - Min;
+            NumCol = I;
+        }
+        
     }
-    
-    
-    
-    
 
 }
