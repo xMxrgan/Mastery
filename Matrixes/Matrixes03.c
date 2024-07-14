@@ -17,6 +17,12 @@ int main() {
         }
     }
 
+    for (J = 0; J < M; J ++) {
+        for (I = 0; I < M; I ++) {
+            printf("%d", A[J][I]);
+        }
+    }
+
     for (X = 0; X < M; X ++) {
         for (Y = M - 1; Y >= 0; Y --) {
             
