@@ -30,7 +30,7 @@ int main() {
     }
 
     for (I = 0; I < M; I ++) {
-        for (J = I; J < M; J ++) {
+        for (J = I; J <= M; J ++) {
             Joker += A[I][J];
         }
     }
