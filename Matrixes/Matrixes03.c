@@ -19,8 +19,9 @@ int main() {
 
     for (J = 0; J < M; J ++) {
         for (I = 0; I < M; I ++) {
-            printf("%d", A[J][I]);
+            printf("%d\t", A[J][I]);
         }
+        printf("\n");
     }
 
     for (X = 0; X < M; X ++) {
