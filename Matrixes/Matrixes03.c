@@ -9,7 +9,7 @@ int main() {
     int A[M][M];
     int Num, J, I;
     int X, Y;
-    int Joker;                                        // Flag
+    int Joker = 0, Count = 0;                                        // Flag
 
     for (J = 0; J < M; J ++) {
         for (I = 0; I < M; I ++) {
@@ -29,12 +29,15 @@ int main() {
             
             if (A[X][X] < A[X][Y]) {
                 Joker = 1;
-                break;
             }
+        }
+
+        if (Joker == 1) {
+            Count ++;
         }
     }
 
-    if (Joker == 1) {
+    if (Count == M) {
         printf("For each element of the main diagonal there is a bigger element in the secondary diagonal");
     } else {
         printf("For each element of the main diagonal there is NOT a bigger element in the secondary diagonal");
