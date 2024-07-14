@@ -16,4 +16,26 @@ come segue:
 9 9 9 9 9
 */
 
+#include <stdio.h>
+#define D 5
+
+int main() {
+    int M[D][D];
+    int Number;
+    int I;
+    int Joker = 0;
+    int Count;
+
+    printf("Please, gime me your number\n");
+
+    scanf("%d", &Number);
+
+    for (I = 0; I < D; I ++) {
+        M[I][I] = Number;
+    }
+
+
+}
+
+
 
