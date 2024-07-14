@@ -9,7 +9,7 @@ int main() {
     int A[M][M];
     int Num, J, I;
     int X, Y;
-    int Joker = 1;                                        // Flag
+    int Joker;                                        // Flag
 
     for (J = 0; J < M; J ++) {
         for (I = 0; I < M; I ++) {
