@@ -25,8 +25,10 @@ int main() {
     }
 
     for (X = 0; X < M; X ++) {
+        Joker = 0;
+
         for (Y = M - 1; Y >= 0; Y --) {
-            
+
             if (A[X][X] < A[X][Y]) {
                 Joker = 1;
             }
@@ -42,6 +44,5 @@ int main() {
     } else {
         printf("For each element of the main diagonal there is NOT a bigger element in the secondary diagonal");
     }
-    
-}
 
+}
