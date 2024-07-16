@@ -7,7 +7,7 @@ typedef struct node {
 } elem;
 
 elem *createList(elem *, int);
-// elem *remove(elem *, int)
+// elem *remove(elem *, int);
 void view(elem *);
 
 int main() {
@@ -31,7 +31,7 @@ elem *createList(elem *list, int num) {
     elem *prec;
     elem *tmp;
 
-    tmp = (elem *)malloc(sizeof(elem);
+    tmp = (elem *)malloc(sizeof(elem));
 
     if (tmp != NULL) {
         tmp -> datum = num;
