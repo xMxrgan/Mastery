@@ -1,0 +1,1 @@
+Write a program that takes froma file all the words in a dynamic list, count which are the most used words and print on another file all the word in order of usage, decide if you want them in order of frequency or alphabetical
