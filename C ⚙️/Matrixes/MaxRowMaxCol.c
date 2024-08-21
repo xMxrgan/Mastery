@@ -22,16 +22,23 @@ void view(int *matrix, int row, int col) {
 }
 
 void maxRowCol(int *maxrow, int *maxcol, int *matrix, int row, int col) {
+    int maxiRow = 0;
     *maxrow = 0;
+    int maxiCol = 0;
     *maxcol = 0;
+
     int J;
 
     for (int r = 0; r < row; ++r) {
         J = 0;
         for (int c = 0; c < col; ++c) {
             J += *(matrix + r * col + c);
+            printf("%d ", J);
         }
-        if (J > *maxrow) *maxrow = r;
+        if (J > maxiRow) {
+            maxiRow = J;
+            *maxrow = r;
+        }
     }
 
     for (int c = 0; c < col; ++c) {
@@ -39,7 +46,10 @@ void maxRowCol(int *maxrow, int *maxcol, int *matrix, int row, int col) {
         for (int r = 0; r < row; ++r) {
             J += *(matrix + r * col + c);
         }
-        if (J > *maxcol) *maxcol = c;
+        if (J > maxiCol) {
+            maxiRow = J;
+            *maxcol = c;
+        }
     }
 }
 
@@ -52,7 +62,7 @@ int main() {
     printf("Please, give me your 4x4 matrix:\n");
     for (int r = 0; r < Row; ++r) {
         for (int c = 0; c < Col; ++c) {
-            Random = rand() % 100;                             // From 0 to 10 (% 10)
+            Random = rand() % 10;                             // From 0 to 10 (% 10)
             Matrix[r][c] = Random;
         }
     }
@@ -60,5 +70,5 @@ int main() {
     view((int *)Matrix, Row, Col);
     maxRowCol(&MaxRow, &MaxCol, *Matrix, Row, Col);
 
-    printf("The row with the higher sum is: %d, and the column is: %d", MaxRow, MaxCol);
+    printf("The row with the higher sum is: %d, and the column is: %d", MaxRow + 1, MaxCol + 1);
 }
