@@ -31,9 +31,13 @@ elem *CreateList(elem *list, int num) {
 }
 
 void viewList(elem *list) {
-    
+    while (list) {
+        if (list -> next) printf("%d -> ", list -> data);
+        if (!list -> next) printf ("%d\n");
+        
+        list = list -> next;
+    }
 }
-
 
 int main() {
     elem *List = NULL;
