@@ -11,8 +11,6 @@ int main(){
     int Result;
     int *Array[DIM];
 
-    printf("Please, give me the number of elements in the array.\n");
-    
     printf("Please, now provide me all the elements of the array\n");
     for (int J = 0; J < DIM; J ++) {
         scanf("%d", &Array[J]);
