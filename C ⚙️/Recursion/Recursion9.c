@@ -3,40 +3,33 @@ Scrivere una funzione ricorsiva che dato un array di interi, la sua dimensione e
 */
 
 #include <stdio.h>
-#include <stdlib.h>
 #define DIM 5
 
 int sum(int *, int);
+
 int main(){
     int Result;
     int *Array;
     int J, Num;
 
     printf("Please, give me the number of elements in the array.\n");
-    scanf("%d", &Num);
-
-    Array = (int *)malloc(Num * sizeof(int));
-
+    
     printf("Please, now provide me all the elements of the array\n");
     for (J = 0; J < Num; J ++) {
         scanf("%d", &Array[J]);
     }
 
-    Result = sum(Array, Num);
+    Result = sum(Array, DIM);
 
     printf("%d is the sum of the elements in your array!", Result);
-
-    free(Array);
 }
 
-int sum(int *array, int num) {
+int sum(int *array, int dim) {
     int result;
 
     if (num == 0) {
-        result = num;
+        return 0;
     } else {
-        result = array[0] + sum(array + 1, num - 1);
+        return *array + sum(*array + 1, dim - 1);
     }
-
-    return result;
 }
