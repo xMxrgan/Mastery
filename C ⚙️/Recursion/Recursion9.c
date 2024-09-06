@@ -22,7 +22,6 @@ int main(){
 }
 
 int sum(int *array, int dim) {
-    int result;
 
     if (!dim) {
         return 0;
