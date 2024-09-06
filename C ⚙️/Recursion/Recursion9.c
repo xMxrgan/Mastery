@@ -24,7 +24,7 @@ int main(){
 int sum(int *array, int dim) {
     int result;
 
-    if (dim == 0) {
+    if (!dim) {
         return 0;
     } else {
         return *array + sum(*array + 1, dim - 1);
