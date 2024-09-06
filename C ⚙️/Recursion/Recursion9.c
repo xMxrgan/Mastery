@@ -9,13 +9,12 @@ int sum(int *, int);
 
 int main(){
     int Result;
-    int *Array;
-    int J, Num;
+    int *Array[DIM];
 
     printf("Please, give me the number of elements in the array.\n");
     
     printf("Please, now provide me all the elements of the array\n");
-    for (J = 0; J < Num; J ++) {
+    for (int J = 0; J < DIM; J ++) {
         scanf("%d", &Array[J]);
     }
 
@@ -27,7 +26,7 @@ int main(){
 int sum(int *array, int dim) {
     int result;
 
-    if (num == 0) {
+    if (dim == 0) {
         return 0;
     } else {
         return *array + sum(*array + 1, dim - 1);
