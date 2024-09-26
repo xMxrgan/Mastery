@@ -1,3 +1,4 @@
+
 /*
 Scrivere un programma Java che chiede in ingresso due numeri a e b e verifica se a
 e' multiplo di b, oppure b è multiplo di a e stampa un opportuno messaggio a video
@@ -15,9 +16,8 @@ import java.util.Scanner;
 public class Conditionals {
 
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
-        String Name = scanner.newLine();
+        String Name = scanner.nextLine();
 
         System.out.println(Name);
     }
