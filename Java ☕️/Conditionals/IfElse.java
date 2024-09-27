@@ -13,7 +13,7 @@ import java.util.Scanner;
 
   public class Main {
     public static void main (String[] args) {
-      int A, B;
+      int A, B, C;
 
       Scanner scanner = new Scanner(System.in);
 
@@ -36,6 +36,29 @@ import java.util.Scanner;
         System.out.println(B + " is multiple of " + A);
       } else {
         System.out.println("They aren't multipliers!");
+      }
+
+      System.out.println("Now, please give me 3 numbers and I'll figure a triangle with these edges:");
+      A = scanner.nextInt();
+      scanner.nextLine();
+      B = scanner.nextInt();
+      scanner.nextLine();
+      C = scanner.nextInt();
+      scanner.nextLine();
+
+      isTriangle(A, B, C);
+      
+    }
+
+    static void isTriangle(int a, int b,  int c) {
+      if (a == b && b == c) {
+        System.out.println("Equilater");
+      } else if (a == b && b != c) {
+        System.out.println("Isoscile");
+      } else if (a == c && c != b) {
+        System.out.println("Isoscile");
+      } else {
+        System.out.println("Scaleno");
       }
     }
   }
