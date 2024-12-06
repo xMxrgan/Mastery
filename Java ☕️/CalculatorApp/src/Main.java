@@ -21,10 +21,10 @@ public class Main {
         UserInput input = new UserInput(string);
 
         if (calcType.equals("BASIC")) {
-            if (isInteger(input.getX()) && validOperand(input.getOperand()) && isInteger(input.getY())) {
+            if (isInteger(input.getX()) && validOperand(input.getOperand(), calcType) && isInteger(input.getY())) {
                 BasicCalc calc = new BasicCalc(input.getX(), input.getOperand(), input.getY());
             } else {
-                System.out.println("Error, matters for a more \"science\" calculator");
+                System.out.println("This operation is too difficult or this operator is not supported, matters for a more \"scientist\" calculator");
             }
         }
         if (calcType.equals("SCIENTIFIC")) {
@@ -35,7 +35,7 @@ public class Main {
     private static boolean isInteger(double num) {
         return num % 1 == 0;
     }
-    private static boolean validOperand(char operand) {
+    private static boolean validOperand(char operand, String calcType) {
         if (calcType.equals("BASIC")) {
             switch (operand) {
                 case '+': return true;
