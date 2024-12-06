@@ -1,8 +1,10 @@
 public class ScientificCalc {
-    private float x, y;
+    private double x, y;
     private char operand;
 
-    public ScientificCalc(float x, char operand, float y) {
-
+    public ScientificCalc(double x, char operand, double y) {
+        this.x = x;
+        this.operand = operand;
+        this.y = y;
     }
 }
