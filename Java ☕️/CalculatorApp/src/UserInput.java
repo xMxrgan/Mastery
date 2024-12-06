@@ -1,5 +1,3 @@
-
-
 public class UserInput {
     private String input;
     private int x = 0, y = 0;
