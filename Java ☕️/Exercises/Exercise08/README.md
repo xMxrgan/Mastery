@@ -1,2 +1,0 @@
-Si scriva un programma il cui main legge un intero non negativo da tastiera (se negativo, lo richiede ad oltranza) e lo trasforma in una stringa che rappresenta lo stesso numero in binario, che infine stampa. Per esempio, se viene immesso l'intero 123, deve costruire e poi stampare la stringa "1111011".
-Si faccia la stessa cosa in ottale e in esadecimale.
