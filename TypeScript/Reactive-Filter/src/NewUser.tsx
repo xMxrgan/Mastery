@@ -26,10 +26,14 @@ export const NewUser = () => {
 
         setUser((prevUser) => [...prevUser, newUser]);
 
-        // Rest fields
+        // Reset fields
         setName("");
         setSurname("");
         setAge("");
+    };
+
+    const handleRemoveUser = (userId: number) => {
+        setUser((prevUser) => prevUser.filter((u) => u.id !== userId));
     };
 
     return (
@@ -69,12 +73,16 @@ export const NewUser = () => {
                 {user.map((u) => (
                     <div
                         key={u.id}
-                        className="border rounded p-2 bg-gray-50 shadow"
+                        className="flex border rounded p-2 bg-gray-50 shadow"
                     >
                         <p>
                             <span className="font-semibold">{u.name}</span>{" "}
                             {u.surname} — {u.age} anni
                         </p>
+
+                        <button onClick={() => handleRemoveUser(u.id)}>
+                            Remove
+                        </button>
                     </div>
                 ))}
             </div>

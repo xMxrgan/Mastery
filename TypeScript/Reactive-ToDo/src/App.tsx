@@ -21,11 +21,6 @@ function App() {
         setNewTitle(""); // resetta input
     };
 
-    const handleRemoveTask = (id: number) => {
-        setTasks(tasks.filter((task) => task.id !== id));
-        setCounterTasks(counterTasks - 1);
-    };
-
     return (
         <div className="p-4">
             <div className="flex gap-4 items-center mb-4">
