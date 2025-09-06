@@ -1,19 +1,12 @@
-type input = {
-    id: number;
-    amount: number;
-    description?: string;
-    category: string;
-};
+import Home from "../pages/Home";
+import Navbar from "../components/Navbar";
+import { BrowserRouter } from "react-router-dom";
 
-enum categories {
-    HEALTH = "🏥",
-    TRAVEL = "✈️",
-    EDUCATION = "📚",
-    OTHER = "❓",
+export default function App() {
+    return (
+        <BrowserRouter>
+            <Navbar />
+            <Home />
+        </BrowserRouter>
+    );
 }
-
-function App() {
-    return;
-}
-
-export default App;
