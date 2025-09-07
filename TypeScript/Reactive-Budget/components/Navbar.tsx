@@ -39,7 +39,7 @@ export default function Navbar() {
                                 : "text-gray-600 hover:text-blue-600 hover:bg-gray-100"
                         }`}
                     >
-                        HOME
+                        Home
                     </Link>
 
                     <Link
